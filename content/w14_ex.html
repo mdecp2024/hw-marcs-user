@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,10 +141,46 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 3 << <a href='HW 3.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4<br /><h1>HW 3 Exam</h1>
-<p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<br />HW 3 << <a href='HW 3.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4</div>
+    <div id="tipue_search_content">w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w14_ex</h1>
+<p><a href="https://mdecp2024.github.io/hw-marcs-user/content/Brython.html?src=https://gist.githubusercontent.com/marcs-user/574431e60a28bc5bc42364e38c4bed91/raw/9bc00570af9b196fbbe54736a1e086b7b213d712/%25E4%25B8%2589%25E5%259C%2593%25E7%259B%25B8%25E6%258E%25A5%2520%25E5%25A1%2597%25E8%2589%25B2">三圓相接 塗色</a></p>
+<!-- 利用 Brython 繪圖 -->
+<script type="text/python">
+from browser import html
+from browser import document as doc
+
+# 利用 HTML 建立 canvas 並定義特性
+canvas = html.CANVAS(width=600, height=600)
+brython_div = doc["brython div1"]
+brython_div <= canvas
+ctx = canvas.getContext("2d")
+
+ctx.lineWidth = 1
+ctx.strokeStyle = 'red'  # 設定矩形的邊框顏色為紅色
+ctx.beginPath()
+ctx.rect(100, 100, 200, 200)  # 第一個正方形的左上角在(100, 100)，邊長200
+ctx.rect(200, 200, 200, 200)  # 第二個正方形的左上角在(200, 200)，邊長200
+ctx.stroke()
+
+# 2. 繪製對角線 (藍色) - 只連接第一個矩形的左上角和第一個矩形的右下角
+ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
+ctx.beginPath()
+ctx.moveTo(100, 100)  # 起點為第一個矩形的左上角 (100, 100)
+ctx.lineTo(300, 300)  # 終點為第一個矩形的右下角 (300, 300)
+ctx.stroke()
+
+# 3. 繪製兩個外切圓 (黑色)
+ctx.strokeStyle = 'black'  # 設定圓的顏色為黑色
+
+# 第一個矩形的外切圓
+ctx.beginPath()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)  # 圓心在(200, 200)，半徑為141.4（sqrt(2) * 邊長的一半）
+ctx.stroke()
+
+# 第二個矩形的外切圓
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)  # 圓心在(300, 300)，半徑為141.4
+ctx.stroke()
+</script><br />w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
       <div class="container">
